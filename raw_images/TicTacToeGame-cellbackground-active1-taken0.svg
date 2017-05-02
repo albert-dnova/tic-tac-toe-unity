@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 25 25"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   width="100%"
+   height="100%"
+   sodipodi:docname="red_selected_2.svg">
+  <metadata
+     id="metadata33">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>blue_selected_2</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="890"
+     inkscape:window-height="683"
+     id="namedview31"
+     showgrid="false"
+     inkscape:zoom="10.26087"
+     inkscape:cx="11.5"
+     inkscape:cy="11.5"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <style
+       id="style6">.cls-1{isolation:isolate;}.cls-2{fill:#1f2225;}.cls-3{mask:url(#mask);}.cls-4{mix-blend-mode:screen;}.cls-5{fill:#ff5552;}.cls-6{filter:url(#luminosity-invert);}</style>
+    <filter
+       id="luminosity-invert"
+       filterUnits="userSpaceOnUse"
+       color-interpolation-filters="sRGB">
+      <feColorMatrix
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"
+         id="feColorMatrix9" />
+    </filter>
+    <mask
+       id="mask"
+       x="-2"
+       y="-2"
+       width="27"
+       height="27"
+       maskUnits="userSpaceOnUse">
+      <g
+         class="cls-6"
+         id="g12"
+         style="filter:url(#luminosity-invert)">
+        <g
+           transform="translate(-1,-1)"
+           id="g14">
+          <image
+             width="27"
+             height="27"
+             transform="translate(-1,-1)"
+             xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAIAAAACtmMCAAAACXBIWXMAAAsSAAALEgHS3X78AAABcElEQVRIS+2VQWqDQBSGcy+9iZgTGDeiGAwInsWF4BFcBMlGXKio7SJ3cJFlUGy/JpuOjExoWmih/y7O/F/mvTfz3mbzl6Tr+na7tW3b87z9fh8EwWFFwU2+77uuu9vtcOGV4KIoStP0dDpVVdV1Xd/3Lze9irp/ZLVtW3bmeY4rDENN0wQi/8PC+Xy+XC7jOL49pmma2I8rSRLTNAUiwXI6llUQiXAdj0fCF4jkjhAeP91n4SrLkpwKREpB7lReueZ5bpqGQglEakeyVd5VUSUIApE7QQVVxlUR3/cTISyJ3DWVcVX/xJ8kPlnr5e3h9zNEyQ1//s3wjgUir5KvKqNcvOu6rpfvms5B76HfqewSXa/XoigcxxGIdDe68df64zAMWZZZliUQFz2cQFScj2A5HTgKHcexYRgCkTnDrKC5041pn/Q70tqtqL2J3BEspwNHEiXDi9HDrCB8csqO+8BbG4RUlj3kjmA5nQT3q/UOXdRdgMJtoh8AAAAASUVORK5CYII="
+             id="image16" />
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <title
+     id="title18">blue_selected_2</title>
+  <g
+     class="cls-1"
+     id="g20"
+     transform="translate(1,1)">
+    <g
+       id="Layer_1"
+       data-name="Layer 1">
+      <rect
+         class="cls-2"
+         width="23"
+         height="23"
+         rx="3.8299999"
+         ry="3.8299999"
+         id="rect23"
+         x="0"
+         y="0"
+         style="fill:#1f2225" />
+      <g
+         class="cls-3"
+         id="g25"
+         mask="url(#mask)">
+        <g
+           class="cls-4"
+           id="g27">
+          <rect
+             class="cls-5"
+             width="23"
+             height="23"
+             rx="3.8299999"
+             ry="3.8299999"
+             id="rect29"
+             x="0"
+             y="0"
+             style="fill:#ff5552" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
