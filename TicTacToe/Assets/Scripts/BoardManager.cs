@@ -49,8 +49,16 @@ public class BoardManager : MonoBehaviour {
 
 	public void OnItemSelected(int instanceId) 
 	{
-		_currentTurn = (int) Board.CurrentPlayer.PLAYER_CROSS - _currentTurn;
-		NotifyCurrentTurn();
+		UpdateBoard(instanceId);
+		if(HasWinner())
+		{
+			Debug.Log("Match 3 found!");
+		}
+		else
+		{
+			_currentTurn = (int) Board.CurrentPlayer.PLAYER_CROSS - _currentTurn;
+			NotifyCurrentTurn();
+		}		
 	}
 
 	private void CreateBoard() 
@@ -91,4 +99,88 @@ public class BoardManager : MonoBehaviour {
 	{
 		_boardHolder.BroadcastMessage("SetCurrentPlayerTurn", _currentTurn);
 	}
+
+	private void UpdateBoard(int instanceId) 
+	{
+		for(var i = 0; i < BoardSize; ++i)
+		{
+			for(var j = 0; j < BoardSize; ++j)
+			{
+				BoardPosition boardPosition = _board[i][j];
+
+				if(boardPosition.gameObjectInstanceId == instanceId)
+				{
+					if(boardPosition.currentPlayer != Board.CurrentPlayer.PLAYER_INVALID)
+					{
+						Debug.Log("This position was already filled, overwritting!");
+					}
+
+					boardPosition.currentPlayer = _currentTurn;
+					_board[i][j] = boardPosition;
+					break;
+				}
+			}
+		}
+	}
+
+	private bool HasWinner() 
+	{		
+		bool hasRightDiagonalMatch = HasMatch(0, 0, 1, 1);
+		bool hasLeftDiagonalMatch = HasMatch(BoardSize - 1, 0, -1, 1);
+
+		if(hasLeftDiagonalMatch || hasRightDiagonalMatch) 
+		{
+			return true;
+		}
+
+		for(var i = 0; i < BoardSize; ++i)
+		{
+			bool hasColumnMatch = HasMatch(0, i, 1, 0);
+			bool hasRowMatch = HasMatch(i, 0, 0, 1); 
+
+			if(hasColumnMatch || hasRowMatch)
+			{
+				return true;
+			}
+		}	
+
+		return false;
+	}
+
+	private bool HasMatch(int initialRow, int initialColumn, int rowIncrement, int columnIncrement) 
+	{
+		Board.CurrentPlayer expectedMatch = _board[initialRow][initialColumn].currentPlayer;
+
+		if(expectedMatch != Board.CurrentPlayer.PLAYER_INVALID)
+		{
+			int itemsFound = 1;
+			int currentColumn = initialColumn + columnIncrement;
+			int currentRow = initialRow + rowIncrement;
+
+			while(IsValidPosition(currentColumn) && IsValidPosition(currentRow))
+			{	
+				if(_board[currentRow][currentColumn].currentPlayer != expectedMatch)
+				{
+					return false;
+				}
+
+				currentColumn += columnIncrement;
+				currentRow += rowIncrement;
+				++itemsFound;
+			}
+
+			if(itemsFound >= BoardSize)
+			{
+				return true;
+			}			
+		}
+
+		return false;
+	}
+
+	private bool IsValidPosition(int value)
+	{
+		return value >= 0 && value < BoardSize;
+	}
+	
 }

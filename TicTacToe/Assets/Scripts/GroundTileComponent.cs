@@ -5,9 +5,14 @@ using UnityEngine;
 public class GroundTileComponent : MonoBehaviour {
 
 	public Sprite GroundSprite;
+	public Sprite CrossGroundSprite;
+	public Sprite CircleGroundSprite;
 	public Sprite CrossSprite;
 	public Sprite CircleSprite;
+	
 	private bool _isDisplayingOver = false;
+
+	private bool _isSelected = false;
 
 	private Board.CurrentPlayer _currentPlayerTurn;
 
@@ -18,21 +23,30 @@ public class GroundTileComponent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		var isOver = IsInsideObject(mousePosition);
-		DisplayActiveTileBackground(isOver);
-		
-		if(isOver && Input.GetMouseButtonDown(0))
+		if(!_isSelected)
 		{
-			//BoardManager boardManager = GameObject.Find("BoardManager").GetComponent<BoardManager>();
-			BoardManager boardManager = GetComponentInParent<BoardManager>();
-			boardManager.OnItemSelected(GetInstanceID());
-		}
+			Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			var isOver = IsInsideObject(mousePosition);
+			DisplayActiveTileBackground(isOver);
+			
+			if(isOver && Input.GetMouseButtonDown(0))
+			{
+				DisplaySelectedBackground();
+
+				BoardManager boardManager = GetComponentInParent<BoardManager>();
+				boardManager.OnItemSelected(gameObject.GetInstanceID());
+
+				_isSelected = true;				
+			}
+		}		
 	}
 
 	public void SetCurrentPlayerTurn(Board.CurrentPlayer currentPlayerTurn) 
 	{
-		_currentPlayerTurn = currentPlayerTurn;
+		if(!_isSelected)
+		{
+			_currentPlayerTurn = currentPlayerTurn;
+		}		
 	}
 
 	private bool IsInsideObject(Vector3 mousePosition) 
@@ -58,11 +72,11 @@ public class GroundTileComponent : MonoBehaviour {
 			_isDisplayingOver = true;
 			if(_currentPlayerTurn == Board.CurrentPlayer.PLAYER_CIRCLE)
 			{
-				spriteRenderer.sprite = CircleSprite;
+				spriteRenderer.sprite = CircleGroundSprite;
 			}
 			else 
 			{
-				spriteRenderer.sprite = CrossSprite;
+				spriteRenderer.sprite = CrossGroundSprite;
 			}
 			
 		}
@@ -70,6 +84,19 @@ public class GroundTileComponent : MonoBehaviour {
 		{
 			_isDisplayingOver = false;
 			spriteRenderer.sprite = GroundSprite;
+		}
+	}
+
+	private void DisplaySelectedBackground() 
+	{
+		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+		if(_currentPlayerTurn == Board.CurrentPlayer.PLAYER_CIRCLE)
+		{
+			spriteRenderer.sprite = CircleSprite;
+		}
+		else
+		{
+			spriteRenderer.sprite = CrossSprite;
 		}
 	}
 }
